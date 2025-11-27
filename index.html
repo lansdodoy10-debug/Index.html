@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Home-Personal Website</title>
+<link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+<header>
+<h1>Welcome to my Personal Website</h1>
+</header>
+<nav>
+<ul>
+<li><a href="index.html">HOME</a></li>
+<li class="dropdown">
+<a href="#" class="dropbtn">ABOUT</a>
+<div class="dropdown-content">
+<a href="skills.html">Skills I'm Developing</a>
+<a href="goals.html">My Goals as a Student</a>
+<a href="funfacts.html">Fun Facts About Me</a>
+</div>
+</li>
+<li><a href="gallery.html">GALLERY</a></li>
+<li><a href="contact.html">CONTACT</a></li>
+<a href="javascript:void(0);" class="logout-button" onclick="confirmLogout()">LOG OUT</a> 
+</ul>
+</nav>
+<section id="section2"></section>
+<div class="slider">
+<div class="slides">
+<img src="1.jpg" alt="Image 1">
+<div class="text-overlay"><h1>Welcome to my Website!</h1></div>
+</div>
+<div class="slide">
+<img src="2.png" alt="Image 2">
+<div class="text-overlay"><h1>Text for Image 2</h1></div>
+</div>
+<div class="slide">
+<img src="3.png" alt="Image 3">
+<div class="text-overlay"><h1>Text for Image 3</h1></div>
+</div>
+</div>
+</div>
+
+<section id="drop">
+<h2> Fun Facts About Me</h2>
+<p>Welcome to the Fun Facts About Me</p>
+<div class="funfact-container">
+<div class="funfact-card">
+<div class="funfact-inner">
+<p>I love Programming!</p>
+</div>      
+<div class="funfact-back">
+ <p>I can code and make a mean cup of coffee</p>
+</div>
+</div>
+</div>
+<div class="funfact-card">
+<div class="funfact-inner">
+<div class="funfact-front">
+<p>Coffee Explorer!</p>
+</div>
+<div class="funfact-back">   
+  <p>I'm on a mission to try every coffee shop in my town!</p>
+</div>
+</div>
+</div>
+<div class="funfact-card">
+<div class="funfact-inner">
+<div class="funfact-front">
+<p>Code + Music Combo!</p>
+</div>
+<div class="funfact-back">
+<p>My best code happens when I'm listening to OPM and RNB!</p>
+</div>
+</div>
+</div>
+<div class="funfact-card">
+<div class="funfact-inner">
+<div class="funfact-front">
+<p>Goal Setter!</p>
+</div>
+<div class="funfact-back">
+<p>I keep a list of 100 things to achieve this year, from tiny wins to big dreams!</p>
+</div>
+</div>
+</div>
+  <!-- See More Button -->
+<div class="see-more-container">
+<a href="funfacts.html" class="see-more-button">SEE MORE FUNFACTS</a>
+</div>
+</section>
+
+<div class="container">
+<div class="image-section">
+<img src="ton.jpg" alt="Ton's Image">
+</div>   <div class="qoute-section">
+<h1>Hi I'm Mariel</h1>
+<p>I'm an Information Technology student with a passion for front-en web development</p>
+<blockquote>The only way to do great work is to love what you do.
+</blockquote>
+</div>
+</div>
+<footer>
+  <p>&copy;2024 Your name.All rights reserved</p>
+</footer>
+<div class="footer-divider"></div> <!-- Orange line -->
+
+<!-- Lightbox Container -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+<span class="close" onclick="event.stopPropagation();closeLightbox()">&times;</span>
+<img class="lightbox-content" id="lightboxImage" src="">
+</div>
+
+                      <!-- Embedded Javascript -->
+<script>
+const slides= document.querySelector('.slides');
+left index = 0;
+function showNextSlide(){ 
+index = (index + 1)% 3;
+slides.style.transform = 'translateX('+ (-index * 100) +'%)';
+}
+setInterval(showNextSlide, 3000); //Change slide every 3 seconds
+function openLightbox(imagesrc) {
+const lightbox = document.getElementById('lightboximage');
+const lightboximage =
+documemt.getElementById('lightboximage');
+lightboximage.src = imageSrc;
+lightbox.style.display = 'block';
+  
+  //Hide header and nav
+  document.querySelector('header').style.display = 'none'
+  
+  //Hides the header
+  document.querySelector('nav').style.display = 'none'
+  
+  //Hides the nav
+}
+    function closeLightbox() {
+    const Lightbox = document.getElementById('lightboximage');
+    lightbox.style.display = 'none';
+      
+      
+   
+   //Shows header and nav
+   document.querySelector('header').style.display = 'block'
+   
+   //Shows the header
+   document.querySelector('nav').style.display = 'flex'; //Shows the nav
+    }
+   document.addEventListener('DOMContentLoaded', function () {
+   const logoutButton = document.query.selector('.logout-button.dropbtn');
+   const logoutDropdown = document.query.selector('.logout-button.dropdown'); 
+     
+   //Toggle dropdown visibility on button click
+   logoutButton.addEventListener('click' function () {
+   logoutDropdown.style.display =
+   logoutDropdown.style.dislay = = = 'block'? 'none': 'block';
+   });
+     
+   //Close dropdown if clicking outside of it
+   window.addEventListener('click' function (event) {
+   if(!event.target.matches('.dropbtn')) {
+   if(logoutDropdown.style.display = = = 'block') {
+   logoutDropdown.style.display = 'none';
+   }
+   }
+   });
+   });
+</script>
+<script>
+
+//Logout function with confirmation
+function confirm logout () {
+  
+  //Show a confirmation message to the user
+const confirmLogout = confirm("Are you sure you want to log out?");
+  
+//If the user confirms, proceed with logging out
+if (confirmLogout){
+ 
+//Mark the user as logged out in localStorage (if used) 
+localStorage.removeItem('isLoggedIn'); //Or any other keys related to login credentials
+ 
+//Redirect to the login page
+window.location.href = 'login.html';
+}else{
+  
+//If the user cancels, do nothing
+return;
+}
+} 
+</script>
+</body>
+</html>
